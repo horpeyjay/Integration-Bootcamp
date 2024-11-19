@@ -32,4 +32,49 @@ public with sharing class JsonExamples {
         string type{get; set;}
         string url{get; set;}
     }
+
+    //to create a json file
+
+    public static void createJson() {
+        // Create JSON generator
+        JSONGenerator generator = JSON.createGenerator(true);
+    
+        // Start the main object
+        generator.writeStartObject();
+        generator.writeNumberField('totalSize', 1);
+        generator.writeFieldName('records');
+        
+        // Start the records array
+        generator.writeStartArray();
+        generator.writeStartObject();
+    
+        // Add attributes object
+        generator.writeFieldName('attributes');
+        generator.writeStartObject();
+        generator.writeStringField('type', 'LoginHistory');
+        generator.writeStringField('url', '/services/data/v57.0/sobjects/LoginHistory/0Ya6s00000g5kkPCAQ');
+        generator.writeEndObject();
+    
+        // Add remaining fields in the record object
+        generator.writeStringField('Status', 'Success');
+        generator.writeStringField('LoginTime', '2023-03-29T13:10:25.000+0000');
+        generator.writeStringField('CountryIso', 'US');
+        generator.writeStringField('Platform', 'Unknown');
+        generator.writeStringField('LoginType', 'Remote Access 2.0');
+        generator.writeStringField('Application', 'Salesforce CLI');
+        generator.writeStringField('Browser', 'Unknown');
+    
+        // End the record object and array
+        generator.writeEndObject();
+        generator.writeEndArray();
+    
+        // End the main object
+        generator.writeBooleanField('done', true);
+        generator.writeEndObject();
+    
+        // Convert JSON generator to string
+        String jsonString = generator.getAsString();
+        System.debug('The Json body is ' + jsonString);
+    }
+    
 }
