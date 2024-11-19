@@ -1,0 +1,24 @@
+{
+    "totalSize":1,
+    "records":[
+       {
+          "attributes":{
+             "type":"LoginHistory",
+             "url":"/services/data/v57.0/sobjects/LoginHistory/0Ya6s00000g5kkPCAQ"
+          },
+          "Status":"Success",
+          "LoginTime":"2023-03-29T13:10:25.000+0000",
+          "CountryIso":"US",
+          "Platform":"Unknown",
+          "LoginGeoId":"04F6s00000XWVI2EAP",
+          "LoginUrl":"cs165.salesforce.com",
+          "SourceIp":"165.225.222.250",
+          "UserId":"0056s000003h8CaAAI",
+          "Id":"0Ya6s00000g5kkPCAQ",
+          "LoginType":"Remote Access 2.0",
+          "Application":"Salesforce CLI",
+          "Browser":"Unknown"
+       }
+    ],
+    "done":true
+ }
