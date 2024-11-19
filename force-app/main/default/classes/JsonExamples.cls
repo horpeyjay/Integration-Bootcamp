@@ -9,6 +9,10 @@ public with sharing class JsonExamples {
         if(!info.records.isEmpty()){
             system.debug('The login type of the user is ' + info.records[0].LoginType);
         }
+
+        //to generate a json manually
+        String newJson = JSON.serialize(info);
+        System.debug('Json text using serialization is => '+ newJson);
     }
     @SuppressWarning('PMD.Style-ClassNamingConventions')
     class loginDetails{
