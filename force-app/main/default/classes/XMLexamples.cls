@@ -62,4 +62,17 @@ public with sharing class XMLexamples {
             }
         }
     }
+
+    public static void buildXML(){
+        dom.Document doc = new dom.Document();
+        dom.XmlNode accountNode = doc.createRootElement('Account', null, null);
+        dom.XmlNode idNode = accountNode.addChildElement('Id', null, null);
+        idNode.addTextNode('001ak000006UmLlAAK');
+        dom.XmlNode nameNode = accountNode.addChildElement('Name', null, null);
+        nameNode.addTextNode('LunarTech');
+        dom.XmlNode accNumberNode = accountNode.addChildElement('AccountNumber', null, null);
+        accNumberNode.addTextNode('12890878');
+        string accountXML = doc.toXmlString();
+        system.debug(accountXML);
+    }
 }
