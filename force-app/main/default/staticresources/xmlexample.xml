@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <totalSize>1</totalSize>
+    <records>
+        <record>
+            <attributes>
+                <type>LoginHistory</type>
+                <url>/services/data/v57.0/sobjects/LoginHistory/0Ya6s00000g5kkPCAQ</url>
+            </attributes>
+            <Status>Success</Status>
+            <LoginTime>2023-03-29T13:10:25.000+0000</LoginTime>
+            <CountryIso>US</CountryIso>
+            <Platform>Unknown</Platform>
+            <LoginGeoId>04F6s00000XWVI2EAP</LoginGeoId>
+            <LoginUrl>cs165.salesforce.com</LoginUrl>
+            <SourceIp>165.225.222.250</SourceIp>
+            <UserId>0056s000003h8CaAAI</UserId>
+            <Id>0Ya6s00000g5kkPCAQ</Id>
+            <LoginType>Remote Access 2.0</LoginType>
+            <Application>Salesforce CLI</Application>
+            <Browser>Unknown</Browser>
+        </record>
+    </records>
+    <done>true</done>
+</root>
