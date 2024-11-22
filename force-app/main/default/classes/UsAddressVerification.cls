@@ -93,7 +93,42 @@ public with sharing class UsAddressVerification {
         Integer utc_offset { get; set; }
     }
 
-    public static void updateContactLocation(){
-        
+    public static List<Location__c> updateContactLocation(Id contactId){
+        Map<String, Object> locationDetails = streetVerification(contactId);
+        List<Location__c> existingLocation = [Select Contact__c, Name, Address_Geolocation__c From Location__c where Contact__c = : contactId Limit 1];
+        Contact con = [Select Id, Name From Contact where Id = : contactId];
+        List<Location__c> locationList = new List<Location__c>();
+        if(existingLocation.size() == 0){
+            if(con != null){
+                Location__c loc = new Location__c();
+                loc.Contact__c = contactId;
+                loc.Name = con.Name + ' - Address';
+                loc.Street_Address__c = (String) locationDetails.get('full address'); 
+                loc.City_And_State__c = (String) locationDetails.get('city address');
+                loc.City_Name__c = (String) locationDetails.get('city Name');
+                loc.Address_Geolocation__Latitude__s = (Double) locationDetails.get('latitude');
+                loc.Address_Geolocation__Longitude__s = (Double) locationDetails.get('longitude');
+                loc.Zip_Code__c = (String) locationDetails.get('zip code');
+                loc.TimeZone__c = (String) locationDetails.get('time zone');
+                loc.UTC_Offset__c = (Integer) locationDetails.get('UTC offset');
+                locationList.add(loc);
+            }
+            
+        }else{
+
+            existingLocation[0].Street_Address__c = (String) locationDetails.get('full address'); 
+            existingLocation[0].City_And_State__c = (String) locationDetails.get('city address');
+            existingLocation[0].City_Name__c = (String) locationDetails.get('city Name');
+            existingLocation[0].Address_Geolocation__Latitude__s = (Double) locationDetails.get('latitude');
+            existingLocation[0].Address_Geolocation__Longitude__s = (Double) locationDetails.get('longitude');
+            existingLocation[0].Zip_Code__c = (String) locationDetails.get('zip code');
+            existingLocation[0].TimeZone__c = (String) locationDetails.get('time zone');
+            existingLocation[0].UTC_Offset__c = (Integer) locationDetails.get('UTC offset');
+            locationList.add(existingLocation[0]);
+        }
+        if(locationList.size() > 0){
+            return locationList;
+        }
+        return null;
     }
 }
